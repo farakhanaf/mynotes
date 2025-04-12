@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Notes</title>
+</head>
+<body>
+    <h1>My Notes</h1>
+    <form method="POST">
+        {% csrf_token %}
+        <input type="text" name="text" placeholder="Write a note..." required>
+        <button type="submit">Add</button>
+    </form>
+
+    <ul>
+        {% for note in notes %}
+            <li>{{ note.text }} - {{ note.created_at }}</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
